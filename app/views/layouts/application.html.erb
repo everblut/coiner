@@ -1,0 +1,30 @@
+ <!doctype html>
+<html lang="es">
+
+  <head>
+    <title>Coiner</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A minimalist layout for Login pages. Built with Pico CSS.">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="container-fluid">
+      <ul>
+        <li><a href="./" class="contrast"><strong>Coiner</strong></a></li>
+      </ul>
+    </nav>
+
+    <%= yield %>
+
+  </body>
+
+</html>

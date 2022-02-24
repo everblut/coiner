@@ -1,0 +1,20 @@
+<figure id="figure">
+  <table role="grid">
+    <thead>
+      <tr>
+        <th scope="col">Mes</th>
+        <th scope="col">ETH</th>
+        <th scope="col">BTC</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% investment.monthly_projection do |month, index| %>
+      <tr>
+        <th scope="row"><%= index %> Mes</th>
+        <td><%= number_to_currency(month[:eth_usd_earnings]) %></td>
+        <td><%= number_to_currency(month[:btc_usd_earnings]) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</figure>

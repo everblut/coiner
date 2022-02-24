@@ -1,0 +1,38 @@
+<main class="container">
+  <article class="grid">
+    <div>
+      <h1>Tabla de inversión</h1>
+      <table role="grid">
+        <thead>
+          <tr>
+            <th scope="col">Moneda</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Interés mensual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Bitcoin (BTC)</th>
+            <td><kbd data-id='btc_price'><%= number_to_currency(@investment.btc_price, unit: 'USD') %></kbd></td>
+            <td><kbd data-id='btc_tax'> 5% </kbd></td>
+          </tr>
+          <tr>
+            <th scope="row">Ethereum (ETH)</th>
+            <td><kbd data-id='eth_price'> <%= number_to_currency(@investment.eth_price, unit: 'USD') %></kbd></td>
+            <td><kbd data-id='eth_tax'> 3% </kbd></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= form_for(:calculation, method: :get, remote: true) do |f| %>
+        <%= f.number_field :initial_investment , placeholder: 'Cantidad en USD a invertir' %>
+        <%= f.submit 'Calcular', data: { disable_with: 'Calculando...' } %>
+      <% end %>
+    </div>
+    <div>
+    <h1>Proyección mensual</h1>
+    <section id="tables">
+      <%= render partial: 'monthly_projection', locals: { investment: @investment } %>
+    </section>
+    </div>
+  </article>
+</main>
