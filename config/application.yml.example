@@ -1,0 +1,3 @@
+development:
+  COINMARKETCAP_API_BASE_URL: "CoinMarketCap base URL"
+  COINMARKETCAP_API_KEY: "CoinMarketCap Api Key"
